@@ -1,8 +1,6 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-#define min(X,Y) (((X) < (Y)) ? (X) : (Y))
-#define max(X,Y) (((X) > (Y)) ? (X) : (Y))
 
 int main()
 {
@@ -57,5 +55,6 @@ for (;l<len2;l++,i++)
      
   free(ar1); 
   free(ar2); 
+  free(ar3);
   return 0;
 }
