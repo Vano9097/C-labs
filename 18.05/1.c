@@ -5,7 +5,8 @@
 void minmax (int len, int *ar, int *min, int *max)
 {
   int i;
-  
+  *min=INT_MAX; 
+  *max=INT_MIN;
   for (i = 0; i < len; i++)
   {
     if (*min > ar[i]) *min = ar[i];
@@ -16,7 +17,7 @@ void minmax (int len, int *ar, int *min, int *max)
 
 int main()
 {
-  int min=INT_MAX, max=INT_MIN, i,len, *arr;
+  int min, max, i,len, *arr;
   
   printf ("Enter len: ");
   scanf("%d", &len);

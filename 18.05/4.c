@@ -3,32 +3,32 @@
 
 #include <string.h>
 
-void changeStringSize(char *str, int n )
+char *changeStringSize(char *str, int n )
 {
     int i;
-    for (i=0; str[i]!=0;i++);
-    if (i>n)
-        str[n] = 0;
-    else
-    {
-        for (;i<n;i++) str[i]='*';
-        str[n]=0;
-    }
+    char *ar;
+    ar = (char *) malloc( (n+1)*sizeof( char) );
+    for (i=0; str[i]!=0 && i<n ;i++)
+        ar[i]=str[i];
+    for (;i<n;i++) 
+        ar[i]='*';
+    ar[n]=0;
+    return ar;
 }
 
 char str[200];
     
 int main()
 {
-  int len=10;
-  /*printf("Enter len: " );
-  scanf("%d",&len);
-  printf("Entert string: ");
-  printf("\n");*/
-  //getchar(str);
+  int len;
+  char *ar;
   gets(str);
-  changeStringSize(str,len);
-  printf("%s\n", str);
+  printf("Enter len: ");
+  scanf("%d", &len);
+  ar = changeStringSize(str,len);
+  printf("%s\n", ar);
   
+  free(ar);
+
   return 0;
 }

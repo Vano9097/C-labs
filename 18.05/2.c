@@ -2,13 +2,17 @@
 #include <stdio.h>
 #include <time.h>
 
-void *GenArray (int n, int a, int b)
+int *GenArray (int n, int a, int b)
 {
     int *ar, i;
+    ar=NULL;
     ar = (int *) malloc( n*sizeof(int) );
-    srand(time(NULL));
-    for (i=0;i<n;i++)
-    ar[i] = a + rand() % (b - a);
+    if (ar != NULL)
+    {
+
+      for (i=0;i<n;i++)
+        ar[i] = a + rand() % (b - a+1);
+    }
     return ar;
 }
 
@@ -16,7 +20,7 @@ void *GenArray (int n, int a, int b)
 int main()
 {
   int i,a,b,len,*arr;
-  
+      srand(time(NULL));  
   printf ("Enter len: ");
   scanf("%d", &len);
   printf("Enter a,b:");
